@@ -33,12 +33,7 @@ const detallesPedido = [];
 
 /**
  * Usuarios de la capa REST/seguridad (Fase 6). Se separan de "clientes"
- * porque un Usuario puede ser cliente, administrador o dueño (RNF4).
- * Las contraseñas NUNCA se guardan en texto plano: se hashean con bcrypt.
- *
  * Supuesto de diseño: contraseñas de ejemplo solo para pruebas locales.
- * Cámbialas o usa variables de entorno antes de desplegar en un entorno real.
- */
 const usuarios = [
   {
     id: "1",
@@ -57,8 +52,6 @@ const usuarios = [
   },
 ];
 
-// Guarda los refresh tokens vigentes (permite "cerrar sesión" invalidándolos).
-const refreshTokens = new Set();
 
 function generarId(entidad) {
   const id = String(nextId[entidad]++);

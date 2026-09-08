@@ -1,16 +1,22 @@
 {
   "name": "nikkei-roll-backend",
   "version": "1.0.0",
-  "description": "Backend GraphQL para el sistema de ventas online Nikkei Roll",
+  "description": "Backend GraphQL + REST para el sistema de ventas online Nikkei Roll",
   "main": "src/app.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "node --watch src/app.js"
+    "start:graphql": "node src/app.js",
+    "start:rest": "node src/rest/server.js",
+    "dev:graphql": "node --watch src/app.js",
+    "dev:rest": "node --watch src/rest/server.js"
   },
   "dependencies": {
     "@apollo/server": "^4.10.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
     "graphql": "^16.8.1",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2"
   }
 }

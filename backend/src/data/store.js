@@ -8,7 +8,9 @@
  * para poder probar queries y mutations de inmediato.
  */
 
-let nextId = { categoria: 3, producto: 5, cliente: 2, pedido: 1, detalle: 1 };
+const bcrypt = require("bcryptjs");
+
+let nextId = { categoria: 3, producto: 5, cliente: 2, pedido: 1, detalle: 1, usuario: 3 };
 
 const categorias = [
   { id: "1", nombre: "Rolls", descripcion: "Rolls de sushi fusión nikkei" },
@@ -29,6 +31,28 @@ const clientes = [
 const pedidos = [];
 const detallesPedido = [];
 
+/**
+ * Usuarios de la capa REST/seguridad (Fase 6). Se separan de "clientes"
+ * Supuesto de diseño: contraseñas de ejemplo solo para pruebas locales.
+const usuarios = [
+  {
+    id: "1",
+    nombre: "Admin Nikkei Roll",
+    correo: "admin@nikkeiroll.cl",
+    passwordHash: bcrypt.hashSync("admin123", 10),
+    rol: "ADMIN",
+  },
+  {
+    id: "2",
+    nombre: "Camila Rojas",
+    correo: "camila@example.com",
+    passwordHash: bcrypt.hashSync("cliente123", 10),
+    rol: "CLIENTE",
+    idCliente: "1", // referencia al cliente precargado más abajo
+  },
+];
+
+
 function generarId(entidad) {
   const id = String(nextId[entidad]++);
   return id;
@@ -40,5 +64,7 @@ module.exports = {
   clientes,
   pedidos,
   detallesPedido,
+  usuarios,
+  refreshTokens,
   generarId,
 };

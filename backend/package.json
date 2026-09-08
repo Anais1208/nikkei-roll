@@ -1,0 +1,16 @@
+{
+  "name": "nikkei-roll-backend",
+  "version": "1.0.0",
+  "description": "Backend GraphQL para el sistema de ventas online Nikkei Roll",
+  "main": "src/app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6"
+  }
+}

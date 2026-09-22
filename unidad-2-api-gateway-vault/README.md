@@ -1,9 +1,6 @@
 # Unidad 2 — API Gateway local con FastAPI y HashiCorp Vault
 
-Laboratorio guiado: seguridad, administración de secretos y enrutamiento
-hacia una API en otro host. **Alcance de esta entrega: pasos 1 al 6** de la
-guía (hasta "Paso 6: proteger la API remota"), sin el Bearer Token del
-Gateway ni la integración Gateway↔Vault (eso es el Paso 8 en adelante).
+
 
 ## Arquitectura (hasta el paso 6)
 
@@ -23,10 +20,7 @@ pero el Gateway todavía no lo consulta (eso es el Paso 8/9).
 | HOST A | 192.168.1.10 | API Gateway + Vault |
 | HOST B | 192.168.1.20 | API REST de negocio |
 
-**Nota práctica:** si estás probando esto en un solo computador (sin dos
-máquinas/VMs), reemplaza `192.168.1.10` y `192.168.1.20` por `127.0.0.1`
-en ambos códigos — los puertos (8000, 8200, 9000) ya son distintos, así que
-funciona igual en localhost.
+
 
 ## Prerrequisitos
 
@@ -188,13 +182,10 @@ curl -H "X-Gateway-Secret: gateway-api-secret-456" http://192.168.1.20:9000/prod
 
 - **Client Identity ≠ Service Identity:** el token del cliente y el secreto Gateway↔Backend son credenciales distintas, guardadas por separado en Vault.
 - **Secret Management ≠ Hardcoded Credentials:** el secreto vive en una variable de entorno / Vault, no en el código fuente.
-- **Autenticación vs. Autorización:** en este punto el backend solo valida "¿tienes la credencial interna?" (autenticación de servicio); todavía no hay roles ni scopes (eso es la extensión propuesta en la guía, fuera del alcance de esta entrega).
+- **Autenticación vs. Autorización:** en este punto el backend solo valida "¿tienes la credencial interna?" (autenticación de servicio); todavía no hay roles ni scopes 
 
-## Qué queda fuera de esta entrega (pasos 7 en adelante)
 
-El Gateway del Paso 3 **aún no envía** el header `X-Gateway-Secret` ni consulta Vault — eso corresponde a los pasos 8 y 9 de la guía original (Gateway seguro con Bearer Token + integración con Vault), que no forman parte del alcance pedido para esta entrega.
 
 ---
 
-✅ **Completado (pasos 1-6):** conectividad, API REST en HOST B, API Gateway básico en HOST A, Vault levantado, secretos guardados, API remota protegida con credencial interna.
-➡️ **Fuera de alcance de esta entrega:** Gateway con Bearer Token + Vault (paso 8-9 en adelante), roles/scopes, restricción de red a nivel de firewall.
+

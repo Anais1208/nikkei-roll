@@ -13,7 +13,7 @@ Sistema de ventas online que permite a los clientes explorar el catálogo, armar
 | 3 | Modelo de datos + script SQL | ✅ |
 | 4 | Backend base | ✅ |
 | 5 | **GraphQL (typeDefs, resolvers, queries, mutations)** | ✅ |
-| 6 | API REST segura | ⚠️ Pendiente |
+| 6 | API REST segura | ✅ |
 | 7 | Seguridad (JWT, bcrypt, roles) | ⚠️ Pendiente |
 | 8 | Frontend | ⚠️ Pendiente |
 | 9 | Integración | ⚠️ Pendiente |

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — Nikkei Roll</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav contenedor">
+      <a href="index.html" class="logo">🍣 Nikkei<span>Roll</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="catalogo.html" class="activo">Catálogo</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Iniciar sesión</a></li>
+      </ul>
+      <button class="boton-menu" aria-label="Abrir menú">☰</button>
+    </nav>
+  </header>
+
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2>Nuestro catálogo</h2>
+        <p>Filtra por categoría para encontrar tu favorito</p>
+      </div>
+
+      <div class="filtros" id="filtros">
+        <button class="filtro-boton activo" data-categoria="Todos">Todos</button>
+        <button class="filtro-boton" data-categoria="Rolls">Rolls</button>
+        <button class="filtro-boton" data-categoria="Ceviches">Ceviches</button>
+      </div>
+
+      <div class="grilla-productos" id="grilla-catalogo"></div>
+    </div>
+  </section>
+
+  <footer class="pie-pagina">
+    <div class="logo">🍣 Nikkei<span>Roll</span></div>
+    <p>Sushi fusión peruano-japonesa · Pedidos online</p>
+    <small>Proyecto académico — Desarrollo Web y Mobile · Caso 19</small>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script>
+    const grilla = document.getElementById("grilla-catalogo");
+    const botonesFiltro = document.querySelectorAll(".filtro-boton");
+
+    function renderizarCatalogo(categoria) {
+      const productosFiltrados =
+        categoria === "Todos"
+          ? PRODUCTOS
+          : PRODUCTOS.filter((p) => p.categoria === categoria);
+
+      grilla.innerHTML = productosFiltrados.map(crearTarjetaProducto).join("");
+    }
+
+    botonesFiltro.forEach((boton) => {
+      boton.addEventListener("click", () => {
+        botonesFiltro.forEach((b) => b.classList.remove("activo"));
+        boton.classList.add("activo");
+        renderizarCatalogo(boton.dataset.categoria);
+      });
+    });
+
+    renderizarCatalogo("Todos");
+  </script>
+</body>
+</html>

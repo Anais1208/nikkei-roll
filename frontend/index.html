@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikkei Roll — Sushi fusión peruano-japonesa</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="encabezado">
+    <nav class="barra-nav contenedor">
+      <a href="index.html" class="logo">🍣 Nikkei<span>Roll</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="activo">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Iniciar sesión</a></li>
+      </ul>
+      <button class="boton-menu" aria-label="Abrir menú">☰</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Sushi fusión peruano-japonesa</h1>
+    <p>Rolls y ceviches que combinan la tradición nikkei con el sabor de siempre. Pide online y recíbelo en tu puerta.</p>
+    <a href="catalogo.html" class="boton-primario">Ver catálogo</a>
+  </section>
+
+  <section class="seccion franja-destacados">
+    <div class="contenedor destacados-grilla">
+      <div class="destacado">
+        <div class="icono">🍣</div>
+        <h3>Fusión auténtica</h3>
+        <p>Recetas que unen la tradición japonesa con el sazón peruano.</p>
+      </div>
+      <div class="destacado">
+        <div class="icono">🛵</div>
+        <h3>Delivery propio</h3>
+        <p>Repartidores propios, con seguimiento del estado de tu pedido.</p>
+      </div>
+      <div class="destacado">
+        <div class="icono">⭐</div>
+        <h3>Ingredientes frescos</h3>
+        <p>Pescado y mariscos seleccionados el mismo día.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="destacados">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2>Los favoritos de la casa</h2>
+        <p>Una probadita de lo que encontrarás en el catálogo completo</p>
+      </div>
+      <div class="grilla-productos" id="grilla-destacados"></div>
+    </div>
+  </section>
+
+  <footer class="pie-pagina">
+    <div class="logo">🍣 Nikkei<span>Roll</span></div>
+    <p>Sushi fusión peruano-japonesa · Pedidos online</p>
+    <small>Proyecto académico — Desarrollo Web y Mobile · Caso 19</small>
+  </footer>
+
+  <script src="js/productos.js"></script>
+  <script>
+    // Muestra solo 3 productos destacados en la página de inicio
+    const destacados = PRODUCTOS.slice(0, 3);
+    document.getElementById("grilla-destacados").innerHTML =
+      destacados.map(crearTarjetaProducto).join("");
+  </script>
+</body>
+</html>

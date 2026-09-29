@@ -31,33 +31,5 @@ backend/
             └── index.js       <- lógica: resuelve queries, mutations y relaciones
 ```
 
-## Cómo ejecutarlo
 
-```bash
-cd nikkei-roll/backend
-npm install
-npm start
-```
 
-Abre `http://localhost:4000/` en el navegador (Apollo Sandbox) y prueba
-las queries/mutations de `PRUEBAS-GRAPHQL.md`.
-
-## Qué revisar para entender el código
-
-1. **`typeDefs/index.js`** — define el "contrato" del API: qué se puede
-   preguntar (`Query`) y qué se puede modificar (`Mutation`), y la forma
-   de cada entidad (`type Producto { ... }`).
-2. **`resolvers/index.js`** — por cada campo del esquema, una función que
-   sabe cómo obtener ese dato. Los resolvers de campo (ej. `Producto.categoria`)
-   son los que hacen que GraphQL sea una **capa de agregación**: el
-   frontend pide `producto { categoria { nombre } }` en un solo viaje, y
-   GraphQL internamente resuelve ambas partes.
-3. **`data/store.js`** — simula la base de datos. Los `id` son strings
-   (convención habitual en GraphQL, tipo `ID`).
-
-## Siguiente paso (Fase 6)
-
-Construir la API REST segura que se ubica **delante** de este servidor
-GraphQL: el frontend hablará con REST (con JWT y roles), y REST hará las
-llamadas a este GraphQL internamente, tal como se explicó en la
-arquitectura de la Fase 1.
